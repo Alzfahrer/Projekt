@@ -410,6 +410,9 @@ public class FitnessAppGUI extends JFrame { // Changed class name from FitnessAp
             setForeground(foregroundColor);
             setFont(new Font("Arial", Font.BOLD, 14));
             setMargin(new Insets(8, 16, 8, 16));
+            setBorderPainted(false); // Remove border
+            setBorder(BorderFactory.createEmptyBorder(8, 16, 8, 16)); // Remove any default border
+            setFocusable(false); // Remove focus border
         }
 
         @Override
@@ -418,8 +421,8 @@ public class FitnessAppGUI extends JFrame { // Changed class name from FitnessAp
             g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
             g2.setColor(backgroundColor);
             g2.fillRoundRect(0, 0, getWidth(), getHeight(), 20, 20);
-            super.paintComponent(g2);
             g2.dispose();
+            super.paintComponent(g);
         }
 
         @Override

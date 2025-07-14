@@ -311,6 +311,8 @@ class RoundedButton extends JButton {
         setForeground(textColor);
         setFocusPainted(false);
         setBorder(BorderFactory.createEmptyBorder(10, 20, 10, 20));
+        setMargin(new Insets(0,0,0,0)); // Remove default margin
+        setFocusable(false); // Remove focus border
     }
 
     @Override
@@ -319,8 +321,8 @@ class RoundedButton extends JButton {
         g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
         g2.setColor(backgroundColor);
         g2.fill(new RoundRectangle2D.Double(0, 0, getWidth() - 1, getHeight() - 1, arcWidth, arcHeight));
-        super.paintComponent(g2);
         g2.dispose();
+        super.paintComponent(g);
     }
 
     @Override
